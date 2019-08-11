@@ -1,0 +1,87 @@
+
+5.git 与Github关联步骤
+1）初始化：git init
+2）
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+3）生成SSH key
+ssh-keygen -t rsa -C "你的邮箱"
+4）测试与github的连接
+ssh -T git@github.com
+5）拷贝key到github
+6）git remote add origin git@github.com:StevenHuang0117/Test_Git.git
+7）git pull origin master
+8）git push -u origin master
+
+如何提高外网下载速度
+https://github.com/
+https://github.com/StevenHuang0117/linux
+https://blog.csdn.net/maiduoudo/article/details/81033898
+151.101.185.194     github.global.ssl.fastly.net      
+140.82.113.4        github.com
+
+国内Linux源码下载
+http://ftp.sjtu.edu.cn/sites/ftp.kernel.org/pub/linux/kernel/
+
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+更新Ubuntu国内镜像源：https://zhuanlan.zhihu.com/p/61228593
+
+安装uboot-tool
+apt-get install u-boot-tools
+
+安装交叉编译工具
+apt-get install gcc-arm-linux-gnueabi
+arm-linux-gnueabi-gcc -v                             查看gcc版本
+
+快捷键：
+CTRL+ALT+T：新建一个shell终端
+CTRL+SHIFT+T：新建一个当前的shell终端
+
+自动编译安装QEMU：
+apt-get install qemu
+
+手动编译安装QEMU：
+1. apt-get install zlib1g-dev
+2. apt-get install libglib2.0-0 libglib2.0-dev
+3.apt-get install libsdl1.2-dev
+4.apt-get install libpixman-1-dev libfdt-dev
+5.git remote add origin git@github.com:qemu/qemu.git
+6.git pull origin stable-2.7
+
+qemu-system-arm --version		查看版本
+qemu-system-arm -M help		查看支持的开发板
+
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/
+
+编译内核：
+1.Makefile修改：
+ARCH            ?= arm
+CROSS_COMPILE   ?= arm-linux-gnueabi-
+2.make vexpress_defconfig
+3.make zImage -j6
+4.make modules -j4
+5.make dtbs
+6.qemu-system-arm -M vexpress-a9 -m 512M -kernel arch/arm/boot/zImage -dtb arch/arm/boot/dts/vexpress-v2p-ca9.dtb -nographic -append "console=ttyAMA0"
+------------------------------------------------------------------------------------------------------------------------------
+虚拟机桌面分辨率修改：
+1.xrandr			列出支持的分辨率
+2.xrandr -s 1280x800	修改
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+下载linux内核源码
+wget http://ftp.sjtu.edu.cn/sites/ftp.kernel.org/pub/linux/kernel/v4.x/linux-4.4.76.tar.gz
+
+下载busybox源码
+wget https://busybox.net/downloads/busybox-1.27.0.tar.bz2
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
