@@ -1,0 +1,35 @@
+iperf冲UDP包，linux协议栈流程：
+__sys_socket ->
+__sys_bind ->
+inet_recvmsg(sk->state == 7) ->
+----------等着收包-----------------------
+__sys_connect -> //开始收到包
+inet_dgram_connect ->
+ip4_datagram_connect ->
+inet_recvmsg(sk->state == 1)
+
+netperf冲UDP包，linux协议栈流程：
+TCP建立阶段：
+tcp_v4_do_rcv（sk0->state == 10） ->
+sk_set_state(sk1->state = 3) ->
+__sys_accept4 ->
+tcp_v4_do_rcv(sk1->state == 1) ->
+inet_accept ->
+inet6_recvmsg ->
+__sys_socket（sock0, sk2）
+__sys_bind (sock0)
+__sys_recvmsg (sock0)
+__sys_recvmsg (sock0)
+__sys_recvmsg (sock0)
+__sys_socket (sock1, sk3)
+__sys_connect (sock1, sk3)
+__sys_socket(sock2, sk4)
+__sys_bind (sock2)
+IPv4: recvmsg(sk4.state==7, type=2)
+tcp_v4_do_rcv 
+IPv4: recvmsg(sk4.state==7)
+……
+tcp_v4_do_rcv(sk1->state == 1)
+tcp_v4_do_rcv(sk1->state == 1)
+inet6_recvmsg(sk1->state == 8)
+tcp_v4_do_rcv(sk1->state == 9)
