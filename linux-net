@@ -33,3 +33,38 @@ tcp_v4_do_rcv(sk1->state == 1)
 tcp_v4_do_rcv(sk1->state == 1)
 inet6_recvmsg(sk1->state == 8)
 tcp_v4_do_rcv(sk1->state == 9)
+
+
+netserver接收UDP_STREAM流程：
+[hgb] main-3 child=0, daemon_parent=0 
+[hgb]setup_listens-0 ar=2 
+[hgb]create_listens-0 af=2
+[hgb]create_listens-1 local_res_temp=19845e0
+[hgb]create_listens-2 socket=3
+[hgb]create_listens-3 bind=3
+[hgb]create_listens-4 listen=3
+Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_INET
+[hgb]daemonize-0 
+[hgb]daemonize-1 fork()=1 
+[hgb]daemonize-1 fork()=0 
+[hgb]daemonize-2 open_debug_file
+[hgb]open_debug_file-0 
+[hgb]daemonize-2 setsid
+[hgb]daemonize-2 signal
+[hgb]daemonize-2 accept_connections
+[hgb]accept_connections-0
+----------等待接收
+[hgb]accept_connection-0 
+[hgb]spawn_child-0 
+[hgb]spawn_child-1 fork()=1
+[hgb]spawn_child-1 fork()=0
+[hgb]open_debug_file-0 
+[hgb] process_requests-0 
+[hgb] process_requests-1 recv_request
+[hgb] process_requests-1 request_type=600
+[hgb] process_requests-1 recv_request
+[hgb] process_requests-1 request_type=97
+[hgb]recv_omni-0 
+[hgb]recv_omni-9 ipfamily=2
+[hgb]recv_omni-12 omni_create_data_socket
+[hgb] process_requests-1 recv_request
