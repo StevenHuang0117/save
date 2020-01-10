@@ -1,1 +1,9 @@
 http://abcdxyzk.github.io/
+
+https://dl.acm.org/citation.cfm?id=3281443
+
+网络技术行业会议：
+Sigcomm
+NSDI（Networked Systems Design and Implementation）
+DRCN（International Conference on the Design of Reliable Communication Networks）
+inforcom
