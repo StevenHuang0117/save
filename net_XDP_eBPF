@@ -8,3 +8,10 @@ https://docs.cilium.io/en/v1.6/bpf/
 https://blog.csdn.net/pwl999/article/details/82706679
 https://www.netronome.com/blog/bpf-ebpf-xdp-and-bpfilter-what-are-these-things-and-what-do-they-mean-enterprise/
 https://lwn.net/Articles/728146/
+
+dog250博客：
+使用XDP(eXpress Data Path)防御DDoS攻击
+https://blog.csdn.net/dog250/article/details/77993218?utm_source=tuicool&utm_medium=referral
+
+github资源：
+https://github.com/xdp-project/xdp-tutorial
