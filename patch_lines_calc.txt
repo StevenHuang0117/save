@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define LINE_MAX_CHAR_NUM		1024
+
+int main(int argc,char *argv[])
+{
+	char *filename;
+	FILE *fp;
+	char str_line[LINE_MAX_CHAR_NUM];
+	int line_add_cnt = 0;
+	int line_del_cnt = 0;
+	int line_total_cnt = 0;
+
+	if (argc <= 1) {
+		printf("no parameters \n");
+		return 0;
+	}
+
+	filename = argv[1];
+	if (filename == NULL) {
+		printf("file name error \n");
+		return -1;
+	}
+
+	fp = fopen(filename, "r");
+	if (fp == NULL) {
+		printf("open file error \n");
+		return -1;
+	}
+
+	while (!feof(fp)) {
+		fgets(str_line,LINE_MAX_CHAR_NUM,fp); //read one line
+		//printf("%s", str_line);
+		
+		if ((str_line[0] == '+') &&
+		    (str_line[1] != '+')) {
+			line_add_cnt++;
+		}
+		else if ((str_line[0] == '-') &&
+			 (str_line[1] != '-')) {
+			line_del_cnt++;
+		}
+	}
+	
+	line_total_cnt = line_add_cnt + line_del_cnt;
+	printf("+ line number: %d \n", line_add_cnt);
+	printf("- line number: %d \n", line_del_cnt);
+	printf("total modified line number: %d \n", line_total_cnt);
+
+	fclose(fp);
+	return 0;
+}
