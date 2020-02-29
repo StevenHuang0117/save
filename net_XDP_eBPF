@@ -9,6 +9,11 @@ https://blog.csdn.net/pwl999/article/details/82706679
 https://www.netronome.com/blog/bpf-ebpf-xdp-and-bpfilter-what-are-these-things-and-what-do-they-mean-enterprise/
 https://lwn.net/Articles/728146/
 
+https://www.kernel.org/doc/html/latest/networking/af_xdp.html
+https://www.infoq.cn/article/2018/06/Facebook-Katran
+https://s3.amazonaws.com/connect.linaro.org/bkk19/presentations/bkk19-121.pdf
+https://linuxplumbersconf.org/event/4/contributions/465/attachments/245/556/Xdp_bulk_Fijalkowski.pdf
+
 dog250博客：
 使用XDP(eXpress Data Path)防御DDoS攻击
 https://blog.csdn.net/dog250/article/details/77993218?utm_source=tuicool&utm_medium=referral
