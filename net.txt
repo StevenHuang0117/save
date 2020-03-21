@@ -7,3 +7,18 @@ Sigcomm
 NSDI（Networked Systems Design and Implementation）
 DRCN（International Conference on the Design of Reliable Communication Networks）
 inforcom
+
+网络收发包工具资料：
+https://wenku.baidu.com/view/d73da2da5022aaea998f0f96
+https://blog.csdn.net/qq_15437629/article/details/78827152
+https://blog.csdn.net/glovej/article/details/79631359
+https://blog.csdn.net/xuaner8786/article/details/79659755
+https://github.com/uweber/mausezahn
+
+hiping使用方法详解
+https://www.hi-linux.com/posts/57862.html
+https://www.cnblogs.com/kai-joy/p/4846865.html
+https://wangchujiang.com/linux-command/c/hping3.html
+
+iperf使用方法详解
+https://blog.csdn.net/peijian1998/article/details/26563957
