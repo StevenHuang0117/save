@@ -1,0 +1,14 @@
+1.编译hiping出现找不到net/bpf.h文件
+rtt.c:48:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+    if (i != TABLESIZE)
+    ^~
+gcc -c -O2 -Wall    -g  relid.c
+gcc -c -O2 -Wall    -g  sendip_handler.c
+gcc -c -O2 -Wall    -g  libpcap_stuff.c
+libpcap_stuff.c:19:10: fatal error: net/bpf.h: No such file or directory
+ #include <net/bpf.h>
+          ^~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:66: libpcap_stuff.o] Error 1
+
+解决方法：sudo ln -s /usr/include/pcap-bpf.h /usr/include/net/bpf.h
