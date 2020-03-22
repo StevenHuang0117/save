@@ -22,3 +22,51 @@ https://wangchujiang.com/linux-command/c/hping3.html
 
 iperf使用方法详解
 https://blog.csdn.net/peijian1998/article/details/26563957
+
+
+--------------------------------------------------------------------
+mz工具使用
+1. 从eth0向192.168.1.102发送一段UDP报文
+mz eth0 -B 192.168.1.102 -t udp -P "hello,I am huangguangbin"
+
+2. 从eth0向192.168.1.102发送一段TCP报文
+mz eth0 -B 192.168.1.102 -t tcp -P "hello,I am huangguangbin"
+
+连发10次
+mz eth0 -c 10 -B 192.168.1.102 -t tcp "sp=5000, dp=5001" -P "hello,I am huangguangbin"
+
+间隔2us连发10次
+mz eth0 -c 10 -d 2 -B 192.168.1.102 -t tcp -P "hello,I am huangguangbin"
+
+间隔2ms连发10次
+mz eth0 -c 10 -d 2m -B 192.168.1.102 -t tcp -P "hello,I am huangguangbin"
+
+间隔2s连发10次
+mz eth0 -c 10 -d 2s -B 192.168.1.102 -t tcp -P "hello,I am huangguangbin"
+
+源端口为5000,目的端口为5001， 把flags标志都置1, 窗口大小为128
+mz eth0 -B 192.168.1.102 -t tcp "sp=5000, dp=5001, flags=fin|syn|rst|psh|ack|urg|ecn|cwr, win=128" -P "hello,I am huangguangbin"
+
+指定发送10个16进制数字：01 02 03 04 05 06 07 08 09 0A
+mz eth0 -B 192.168.1.102 -t tcp "sp=5000, dp=5001, p=01:02:03:04:05:06:07:08:09:0A"
+
+把mz-01_ascii.txt文件中的字符串按ascii码发送
+mz eth0 -B 192.168.1.102 -t tcp -f mz-01_ascii.txt
+
+3.发送arp报文
+发送arp报文请求
+mz eth0 -t arp "request,smac=dc:a6:32:4e:e1:72, sip=192.168.1.200, tip=192.168.1.102"
+
+发送arp报文回复
+mz eth0 -t arp "reply,smac=dc:a6:32:4e:e1:72, sip=192.168.1.200, tmac=74:05:a5:26:13:b2, tip=192.168.1.1"
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
