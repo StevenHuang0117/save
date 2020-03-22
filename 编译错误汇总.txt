@@ -12,3 +12,35 @@ compilation terminated.
 make: *** [Makefile:66: libpcap_stuff.o] Error 1
 
 解决方法：sudo ln -s /usr/include/pcap-bpf.h /usr/include/net/bpf.h
+
+
+2.编译mausezahn出现以下错误
+/usr/bin/ld: cdp.c:(.text+0x1a9c): undefined reference to `libnet_init'
+/usr/bin/ld: cdp.c:(.text+0x2024): undefined reference to `libnet_build_802_3'
+/usr/bin/ld: cdp.c:(.text+0x2378): undefined reference to `libnet_build_802_3'
+/usr/bin/ld: cdp.c:(.text+0x2398): undefined reference to `libnet_write'
+/usr/bin/ld: cdp.c:(.text+0x29d4): undefined reference to `libnet_build_802_3'
+/usr/bin/ld: cdp.c:(.text+0x2a70): undefined reference to `libnet_destroy'
+/usr/bin/ld: cli_arp.o: in function `cmd_arp_hwtype':
+cli_arp.c:(.text+0x94): undefined reference to `cli_print'
+/usr/bin/ld: cli_arp.c:(.text+0xd0): undefined reference to `cli_print'
+/usr/bin/ld: cli_arp.o: in function `cmd_arp_prtype':
+cli_arp.c:(.text+0x18c): undefined reference to `cli_print'
+/usr/bin/ld: cli_arp.c:(.text+0x1cc): undefined reference to `cli_print'
+/usr/bin/ld: cli_arp.o: in function `cmd_arp_hwaddrsize':
+cli_arp.c:(.text+0x288): undefined reference to `cli_print'
+/usr/bin/ld: cli_arp.o:cli_arp.c:(.text+0x2c8): more undefined references to `cli_print' follow
+/usr/bin/ld: cli_arp.o: in function `cmd_arp_end':
+cli_arp.c:(.text+0xa98): undefined reference to `cli_set_configmode'
+/usr/bin/ld: cli_bpdu.o: in function `cmd_bpdu_id':
+cli_bpdu.c:(.text+0xc8): undefined reference to `cli_print'
+/usr/bin/ld: cli_bpdu.c:(.text+0xdc): undefined reference to `cli_print'
+/usr/bin/ld: cli_bpdu.c:(.text+0xe8): undefined reference to `cli_print'
+/usr/bin/ld: cli_bpdu.c:(.text+0x128): undefined reference to `cli_print'
+/usr/bin/ld: cli_bpdu.o: in function `cmd_bpdu_version':
+……
+
+解决方案：CMakeLists.txt中作如下修改：
+SET(CMAKE_C_FLAGS "-Wall -pipe -fexceptions -fstack-protector --param=ssp-buffer-size=4 -fasynchronous-unwind-tables")
+改为：
+SET(CMAKE_C_FLAGS "-Wall -pipe -fexceptions -fstack-protector --param=ssp-buffer-size=4 -fasynchronous-unwind-tables -std=gnu89")
