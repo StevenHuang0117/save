@@ -23,6 +23,11 @@ https://wangchujiang.com/linux-command/c/hping3.html
 iperf使用方法详解
 https://blog.csdn.net/peijian1998/article/details/26563957
 
+nmap使用方法
+https://www.cnblogs.com/LyShark/p/10637507.html
+https://www.cnblogs.com/Acewipe/p/7589022.html
+https://nmap.org/book/man.html
+
 
 --------------------------------------------------------------------
 mz工具使用
