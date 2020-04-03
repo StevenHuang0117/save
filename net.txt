@@ -28,6 +28,9 @@ https://www.cnblogs.com/LyShark/p/10637507.html
 https://www.cnblogs.com/Acewipe/p/7589022.html
 https://nmap.org/book/man.html
 
+X710网卡用户手册
+https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/xl710-10-40-controller-datasheet.pdf
+
 
 --------------------------------------------------------------------
 mz工具使用
