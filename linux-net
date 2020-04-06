@@ -35,6 +35,10 @@ inet6_recvmsg(sk1->state == 8)
 tcp_v4_do_rcv(sk1->state == 9)
 
 
+
+-------------------------------------------------------
+
+
 netserver接收UDP_STREAM流程：
 [hgb] main-3 child=0, daemon_parent=0 
 [hgb]setup_listens-0 ar=2 
@@ -68,3 +72,26 @@ Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_INET
 [hgb]recv_omni-9 ipfamily=2
 [hgb]recv_omni-12 omni_create_data_socket
 [hgb] process_requests-1 recv_request
+---------------------------------------------------------------------------------------------------------------------
+开启MFP特性时
+1、不支持RSS hash的修改
+if (pf->flags & I40E_FLAG_MFP_ENABLED) {
+	dev_err(&pf->pdev->dev,
+		"Change of RSS hash input set is not supported when MFP mode is enabled\n");
+	return -EOPNOTSUPP;
+}
+
+2、不支持流表的修改
+if (pf->flags & I40E_FLAG_MFP_ENABLED) {
+	netif_err(pf, drv, vsi->netdev, "Cannot change Flow Director input sets while MFP is enabled\n");
+	return -EOPNOTSUPP;
+}
+
+3、不支持TC的配置
+/* Check if MFP enabled */
+if (pf->flags & I40E_FLAG_MFP_ENABLED) {
+	netdev_info(netdev,
+		    "Configuring TC not supported in MFP mode\n");
+	return ret;
+}
+
