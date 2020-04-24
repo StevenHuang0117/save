@@ -31,8 +31,23 @@ https://nmap.org/book/man.html
 X710网卡用户手册
 https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/xl710-10-40-controller-datasheet.pdf
 
+ethtool工具使用：
+https://downloadmirror.intel.com/24411/eng/README.txt
 
 --------------------------------------------------------------------
+centos mz工具编译步骤
+1、安装gcc、gcc-c++编译器等工具
+yum -y install gcc
+yum -y install gcc-c++
+yum -y install cmake
+yum -y install libpcap-devel
+yum -y install libnet-devel
+yum -y install libcli-devel
+2、在mz工具的目录执行：cmake .
+3、执行make
+4、make install
+
+
 mz工具使用
 1. 从eth0向192.168.1.102发送一段UDP报文
 mz eth0 -B 192.168.1.102 -t udp -P "hello,I am huangguangbin"
